@@ -21,16 +21,14 @@ class GeetestLib {
     /**
      * 判断极验服务器是否down机
      *
-     * @param null $user_id
+     * @param array $data
      * @return int
      */
-    public function pre_process($user_id = null, $new_captcha=1) {
+    public function pre_process($param, $new_captcha=1) {
         $data = array('gt'=>$this->captcha_id,
                      'new_captcha'=>$new_captcha
                 );
-        if (($user_id != null) and (is_string($user_id))) {
-             $data['user_id'] = $user_id;
-        }
+        $data = array_merge($data,$param);
         $query = http_build_query($data);
         $url = "http://api.geetest.com/register.php?" . $query;
         $challenge = $this->send_request($url);
@@ -91,29 +89,25 @@ class GeetestLib {
     /**
      * 正常模式获取验证结果
      *
-     * @param      $challenge
-     * @param      $validate
-     * @param      $seccode
-     * @param null $user_id
+     * @param string $challenge
+     * @param string $validate
+     * @param string $seccode
+     * @param array $param
      * @return int
      */
-    public function success_validate($challenge, $validate, $seccode, $user_id = null, $data='', $userinfo='', $json_format=1) {
+    public function success_validate($challenge, $validate, $seccode,$param, $json_format=1) {
         if (!$this->check_validate($challenge, $validate)) {
             return 0;
         }
         $query = array(
             "seccode" => $seccode,
-            "data"=>$data,
             "timestamp"=>time(),
             "challenge"=>$challenge,
-            "userinfo"=>$userinfo,
             "captchaid"=>$this->captcha_id,
             "json_format"=>$json_format,
             "sdk"     => self::GT_SDK_VERSION
         );
-        if (($user_id != null) and (is_string($user_id))) {
-            $query["user_id"] = $user_id;
-        }
+        $query = array_merge($query,$param);
         $url          = "http://api.geetest.com/validate.php";
         $codevalidate = $this->post_request($url, $query);
         $obj = json_decode($codevalidate);
