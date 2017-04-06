@@ -8,7 +8,7 @@ require_once dirname(dirname(__FILE__)) . '/lib/class.geetestlib.php';
 require_once dirname(dirname(__FILE__)) . '/config/config.php';
 $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
 session_start();
-$user_id = "test";
+
 $data = array(
 		$user_id => "test", # 网站用户id
 		$client_type => "web", # web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式

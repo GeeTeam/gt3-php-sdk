@@ -110,8 +110,11 @@ class GeetestLib {
         $query = array_merge($query,$param);
         $url          = "http://api.geetest.com/validate.php";
         $codevalidate = $this->post_request($url, $query);
-        $obj = json_decode($codevalidate);
-        if ($obj->{'seccode'} == md5($seccode)) {
+        $obj = json_decode($codevalidate,true);
+        if ($obj === false){
+            return 0;
+        }
+        if ($obj['seccode'] == md5($seccode)) {
             return 1;
         } else {
             return 0;
