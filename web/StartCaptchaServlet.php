@@ -17,6 +17,6 @@ $data = array(
 
 $status = $GtSdk->pre_process($data, 1);
 $_SESSION['gtserver'] = $status;
-$_SESSION['user_id'] = $user_id;
+$_SESSION['user_id'] = $data['user_id'];
 echo $GtSdk->get_response_str();
  ?>
