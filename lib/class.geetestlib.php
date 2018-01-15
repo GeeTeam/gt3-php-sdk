@@ -167,8 +167,8 @@ class GeetestLib {
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, self::$connectTimeout);
             curl_setopt($ch, CURLOPT_TIMEOUT, self::$socketTimeout);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            $curl_errno = curl_errno($ch);
             $data = curl_exec($ch);
+            $curl_errno = curl_errno($ch);
             curl_close($ch);
             if ($curl_errno >0) {
                 return 0;
