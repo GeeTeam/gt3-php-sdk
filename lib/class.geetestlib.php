@@ -16,6 +16,7 @@ class GeetestLib {
     public function __construct($captcha_id, $private_key) {
         $this->captcha_id  = $captcha_id;
         $this->private_key = $private_key;
+        $this->domain = "http://api.geetest.com";
     }
 
     /**
@@ -30,7 +31,7 @@ class GeetestLib {
                 );
         $data = array_merge($data,$param);
         $query = http_build_query($data);
-        $url = "http://api.geetest.com/register.php?" . $query;
+        $url = $this->domain . "/register.php?" . $query;
         $challenge = $this->send_request($url);
         if (strlen($challenge) != 32) {
             $this->failback_process();
@@ -108,7 +109,7 @@ class GeetestLib {
             "sdk"     => self::GT_SDK_VERSION
         );
         $query = array_merge($query,$param);
-        $url          = "http://api.geetest.com/validate.php";
+        $url          = $this->domain . "/validate.php";
         $codevalidate = $this->post_request($url, $query);
         $obj = json_decode($codevalidate,true);
         if ($obj === false){

@@ -2,12 +2,11 @@
 /**
  * 输出二次验证结果,本文件示例只是简单的输出 Yes or No
  */
-// error_reporting(0);
+error_reporting(0);
 require_once dirname(dirname(__FILE__)) . '/lib/class.geetestlib.php';
 require_once dirname(dirname(__FILE__)) . '/config/config.php';
 session_start();
 $GtSdk = new GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
-
 
 $data = array(
         "user_id" => $_SESSION['user_id'], # 网站用户id
