@@ -1,4 +1,4 @@
-极验验证
+极验行为验证
 ========
 极验行为验证是一款可以帮助你的网站与 APP 应用识别与拦截机器程序批量自动化操作的SaaS应用。它是由极验开发的
 新一代人机验证产品，它不基于传统“问题-答案”的检测模式，而是通过利用深度学习对验证过程中产生的行为数据进行
@@ -10,8 +10,7 @@
 行为验证的整个集成流程是顺序进行的，业务层主要涉及到客户端和服务端的部署，在下一个步骤开始前请确保上一个
 步骤的检查点都已经正确完成；请开发者严格按照步骤进行。
 
-步骤  注册极验账户(1) - 登录极验后台(2) - 注册验证ID和Key (3) - 配置ID属性(4) - 集成服务端代码(5) - 
-	   集成客户端代码(6) - 服务上线(7) - 数据上线(8) - 登录后台查看数据(9)
+步骤： 注册极验账户(1) - 登录极验后台(2) - 注册验证ID和Key (3) - 配置ID属性(4) - 集成服务端代码(5) -  集成客户端代码(6) - 服务上线(7) - 数据上线(8) - 登录后台查看数据(9)
 
 
 新手指南
@@ -42,7 +41,7 @@
 Gt Php SDK
 ===============
 使用 3.1 之前版本SDK的用户如果想更新到3.1以及以后版本请先联系极验客服,因为为了兼容老用户,新的特性需要修改验证设置
-本项目是面向服务器端的，具体使用可以参考我们的 `文档 <http://www.geetest.com/install/sections/idx-server-sdk.html>`_ ,客户端相关开发请参考我们的 `前端文档 <http://www.geetest.com/install/>`_.
+本项目是面向服务器端的，具体使用可以参考我们[文档] (http://www.geetest.com/install/sections/idx-server-sdk.html),客户端相关开发请参考我们的[前端文档](http://www.geetest.com/install/).
 
 **注意事项：部署在生产环境中时，需要将gt.js文件存放到项目中并在页面中引用该文件。该js的作用是充分利用多CDN，使静态文件尽可能加载成功。**
 
@@ -54,21 +53,21 @@ Gt Php SDK
 
 部署架构
 ---------------
-详见 `部署架构 <http://www.geetest.com/install/sections/idx-basic-introduction.html#id7>`__ 
+详见[部署架构](http://www.geetest.com/install/sections/idx-basic-introduction.html#id7)
 
 
 前端接口
 -------------------
-详见 `前端接口 <http://www.geetest.com/install/sections/idx-client-sdk.html#config-para>`__ 
+详见[前端接口](http://www.geetest.com/install/sections/idx-client-sdk.html#config-para)
 
 宕机回滚
 --------------
-详见 `宕机回滚 <http://www.geetest.com/install/sections/idx-basic-introduction.html#id8>`__ 
+详见[宕机回滚](http://www.geetest.com/install/sections/idx-basic-introduction.html#id8)
 
 
 文件说明
 ---------------
- - config/config.php 极验ID和KEY配置文件,请在 `极验后台 <http://account.geetest.com>`__ 申请,进行替换
+ - config/config.php 极验ID和KEY配置文件,请在[极验后台](http://account.geetest.com)申请,进行替换
  - lib/class.geetestlib.php 极验库文件(请不要随意改动)
  - static/login.php 前端展示页面,根据您的需求进行自定义
  - web/StartCaptchaServlet.php 根据自己的私钥初始化验证
