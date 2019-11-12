@@ -131,7 +131,7 @@ class GeetestLib {
      * @return int
      */
     public function fail_validate($challenge, $validate, $seccode) {
-        if(md5($challenge) == $validate){
+        if($this->check_validate($challenge, $validate)){
             return 1;
         }else{
             return 0;
